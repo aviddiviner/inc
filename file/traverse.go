@@ -212,7 +212,7 @@ func (s *PathScanner) Scan() []File {
 		if f.IsDir() {
 			foundDirs += 1
 		} else {
-			if f.IsRegular() {
+			if f.IsRegular() || f.IsSymlink() {
 				foundFiles += 1
 				foundBytes += util.ByteCount(f.Size)
 			}
