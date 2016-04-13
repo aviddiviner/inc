@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "key": "1424c5b57fef6895",
+  "created": "2015-12-30T14:06:03-05:00",
+  "entries": [
+    {
+      "_": "1424c5b57f8f6d1f/0",
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-30T14:06:00-05:00",
+      "name": "integ_test",
+      "root": "/tmp",
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/1",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "1-lorem",
+      "root": "/tmp/integ_test",
+      "sha1": "8T+efGgECqgYG+e0lnyJW4SkNfI=",
+      "size": 858,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/2",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "2-ipsum",
+      "root": "/tmp/integ_test",
+      "sha1": "kSIxN7fiWl6btaomc8v9MsSMCnI=",
+      "size": 552,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/8",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-30T14:04:36-05:00",
+      "name": "manifest.v1.json",
+      "root": "/tmp/integ_test",
+      "sha1": "OLlaIKpqLvkHc0BYAcSudiHwjdQ=",
+      "size": 1596,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/4",
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-18T04:25:02-05:00",
+      "name": "bar",
+      "root": "/tmp/integ_test",
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/5",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-18T04:25:02-05:00",
+      "name": "5-amet",
+      "root": "/tmp/integ_test/bar",
+      "sha1": "5zaDWlltzmto+ZCMRfN9uE7x5cw=",
+      "size": 437,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57f8f6d1f/7",
+      "gid": 1896053708,
+      "mode": 493,
+      "mtime": "2015-12-03T10:19:12-05:00",
+      "name": "hello.rb",
+      "root": "/tmp/integ_test",
+      "sha1": "aQHbLm/aj8bU//gR2VUNLRQeh5U=",
+      "size": 39,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57fef6895/0",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "3-dolor",
+      "root": "/tmp/integ_test",
+      "sha1": "koZHKCcD/hWTwKdSf0ymRq7OPDU=",
+      "size": 676,
+      "uid": 812164030
+    },
+    {
+      "_": "1424c5b57fef6895/1",
+      "gid": 1896053708,
+      "mode": 134218221,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "hello-link.rb",
+      "root": "/tmp/integ_test",
+      "size": 8,
+      "uid": 812164030
+    }
+  ]
+}

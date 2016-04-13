@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "key": "056842ac4",
+  "created": "2015-12-30T14:04:36-05:00",
+  "entries": [
+    {
+      "_": "056842ac4/0",
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-30T14:04:33-05:00",
+      "name": "integ_test",
+      "root": "/tmp",
+      "size": 340,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/1",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "1-lorem",
+      "root": "/tmp/integ_test",
+      "sha1": "8T+efGgECqgYG+e0lnyJW4SkNfI=",
+      "size": 858,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/2",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "2-ipsum",
+      "root": "/tmp/integ_test",
+      "sha1": "kSIxN7fiWl6btaomc8v9MsSMCnI=",
+      "size": 552,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/3",
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "3-dolor",
+      "root": "/tmp/integ_test",
+      "sha1": "koZHKCcD/hWTwKdSf0ymRq7OPDU=",
+      "size": 676,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/4",
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-18T04:25:02-05:00",
+      "name": "bar",
+      "root": "/tmp/integ_test",
+      "size": 102,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/5",
+      "gid": 1896053708,
+      "mode": 134218221,
+      "mtime": "2015-11-04T18:47:05-05:00",
+      "name": "hello-link.rb",
+      "root": "/tmp/integ_test",
+      "size": 8,
+      "uid": 812164030
+    },
+    {
+      "_": "056842ac4/6",
+      "gid": 1896053708,
+      "mode": 493,
+      "mtime": "2015-12-03T10:19:12-05:00",
+      "name": "hello.rb",
+      "root": "/tmp/integ_test",
+      "sha1": "aQHbLm/aj8bU//gR2VUNLRQeh5U=",
+      "size": 39,
+      "uid": 812164030
+    }
+  ]
+}

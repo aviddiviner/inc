@@ -1,0 +1,202 @@
+{
+  "version": 3,
+  "lastSet": "1426f9f4131b13f8",
+  "created": "2016-01-07T01:25:56+02:00",
+  "updated": "2016-01-07T01:25:56+02:00",
+  "entries": [
+    {
+      "gid": 1896053708,
+      "mode": 134218221,
+      "mtime": "2015-11-05T01:47:05+02:00",
+      "name": "hello-link.rb",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "6XuoW5QjoOvwBY3uB7A6Tv54aRs=",
+      "size": 8,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 493,
+      "mtime": "2015-12-03T17:19:12+02:00",
+      "name": "hello.rb",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "aQHbLm/aj8bU//gR2VUNLRQeh5U=",
+      "size": 39,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-30T21:07:20+02:00",
+      "name": "config.v1.json",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "dKTshs/M+Yk28OIGQ9VC+KznGZA=",
+      "size": 270,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2016-01-07T01:25:56+02:00",
+      "name": "config.v2.json",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "sbybJ+Vi7EbY6gnOJH7l5AghvBQ=",
+      "size": 371,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-05T01:47:05+02:00",
+      "name": "2-ipsum",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "kSIxN7fiWl6btaomc8v9MsSMCnI=",
+      "size": 552,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-05T01:47:05+02:00",
+      "name": "3-dolor",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "koZHKCcD/hWTwKdSf0ymRq7OPDU=",
+      "size": 676,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-11-05T01:47:05+02:00",
+      "name": "1-lorem",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "8T+efGgECqgYG+e0lnyJW4SkNfI=",
+      "size": 858,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-30T21:04:36+02:00",
+      "name": "manifest.v1.json",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "OLlaIKpqLvkHc0BYAcSudiHwjdQ=",
+      "size": 1596,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-30T21:06:03+02:00",
+      "name": "manifest.v2.json",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "GdPrme4LNaRC8uuaum5bEGDaepk=",
+      "size": 2119,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2016-01-07T01:12:02+02:00",
+      "name": "manifest.v3.json",
+      "parts": [
+        {
+          "key": "0"
+        }
+      ],
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "sha1": "akqFcmzi16CSIQ2OZez/ATz1h5w=",
+      "size": 3614,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 420,
+      "mtime": "2015-12-18T11:25:02+02:00",
+      "name": "5-amet",
+      "parts": [
+        {
+          "key": "1"
+        }
+      ],
+      "root": "/tmp/integ_test/bar",
+      "set": "1426f9f4131b13f8",
+      "sha1": "5zaDWlltzmto+ZCMRfN9uE7x5cw=",
+      "size": 437,
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-30T22:55:03+02:00",
+      "name": "integ_test",
+      "root": "/tmp",
+      "set": "1426f9f4131b13f8",
+      "uid": 812164030
+    },
+    {
+      "gid": 1896053708,
+      "mode": 2147484141,
+      "mtime": "2015-12-18T11:25:02+02:00",
+      "name": "bar",
+      "root": "/tmp/integ_test",
+      "set": "1426f9f4131b13f8",
+      "uid": 812164030
+    }
+  ]
+}

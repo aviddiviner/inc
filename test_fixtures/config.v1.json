@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "s3Region": "us-west-2",
+  "s3Bucket": "backupinc-test-3f387a19cf54",
+  "awsAccessKey": "",
+  "awsSecretKey": "",
+  "encKey": "2eEI3+K22O9wPRsNNwqLPqIE0lKua8puaBOXkS9tUx4=",
+  "authKey": "wsGwn/MFPXge3dGQ/JPOhsp6/ED9tZSsRsMcLPOZLQ/zKAQwnq2r7vbPHqtDbQKGC8uMrLDleb0YLUwtkMxPNg=="
+}
