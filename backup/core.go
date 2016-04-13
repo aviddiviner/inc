@@ -32,7 +32,7 @@ func saveManifest(bucket *store.Store, m Manifest) (err error) {
 	return
 }
 
-var defaultCachePath = filepath.Join(os.Getenv("HOME"), ".backupinc", "cache")
+var defaultCachePath = filepath.Join(os.Getenv("HOME"), ".inc", "cache")
 
 func cacheGetStoreObject(bucket *store.Store, key string) (data []byte, err error) {
 	cacheFile := filepath.Join(defaultCachePath, strings.Replace(bucket.ID()+"/"+key, "/", "_", -1))

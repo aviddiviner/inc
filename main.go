@@ -16,18 +16,18 @@ import (
 var usage = `Incremental remote backup utility.
 
 Usage:
-  backupinc init    [--cfg FILE] --pass SECRET [--storage TYPE] [--s3-key KEY]
-                    [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
-                    [--fs-root PATH] [-f]
-  backupinc backup  [--cfg FILE] [--pass SECRET] [--storage TYPE] [--s3-key KEY]
-                    [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
-                    [--fs-root PATH] <path>...
-  backupinc restore [--cfg FILE] [--pass SECRET] [--storage TYPE] [--s3-key KEY]
-                    [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
-                    [--fs-root PATH] --dest DIR <path>...
-  backupinc scan <path>...
-  backupinc -h | --help
-  backupinc --version
+  inc init    [--cfg FILE] --pass SECRET [--storage TYPE] [--s3-key KEY]
+              [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
+              [--fs-root PATH] [-f]
+  inc backup  [--cfg FILE] [--pass SECRET] [--storage TYPE] [--s3-key KEY]
+              [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
+              [--fs-root PATH] <path>...
+  inc restore [--cfg FILE] [--pass SECRET] [--storage TYPE] [--s3-key KEY]
+              [--s3-secret KEY] [--s3-region NAME] [--s3-bucket NAME]
+              [--fs-root PATH] --dest DIR <path>...
+  inc scan <path>...
+  inc -h | --help
+  inc --version
 
 Commands:
   init              Initialize the store for first use. Will create the S3 bucket or folder as required.
@@ -36,7 +36,7 @@ Commands:
   scan              Scan files and generate a manifest.json file. Don't perform any backup/restore.
 
 Options:
-  --cfg FILE        Config file to read (if it exists) or write to. [default: ~/.backupinc.cfg]
+  --cfg FILE        Config file to read (if it exists) or write to. [default: ~/.inc.cfg]
   -f --force        Force initialization. (WARNING: This will overwrite existing data in the store.)
   --pass SECRET     Encryption password. Used on first initialization, or when unlocking the store.
   --storage TYPE    Storage medium to use (s3, fs). [default: s3]
@@ -50,14 +50,14 @@ Options:
   --version         Show version.
 
 Backup examples:
-  backupinc init --pass foobar --s3-bucket myspecialbucket --s3-region us-west-2
-  backupinc backup ~/code ~/pics ~/movies
+  inc init --pass foobar --s3-bucket myspecialbucket --s3-region us-west-2
+  inc backup ~/code ~/pics ~/movies
 
 Any path with a leading colon (:) will be excluded from the backup. For example:
-  backupinc backup ~/pics ~/movies :~/movies/Hellboy.mkv
+  inc backup ~/pics ~/movies :~/movies/Hellboy.mkv
 
 Restore examples:
-  backupinc restore --dest /tmp/restore ~/code ~/pics`
+  inc restore --dest /tmp/restore ~/code ~/pics`
 
 var buildTag = fmt.Sprintf("%s [%s] %s/%s", BUILD_DATE, BUILD_COMMIT, runtime.GOOS, runtime.GOARCH)
 
