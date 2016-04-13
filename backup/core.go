@@ -3,7 +3,7 @@ package backup
 import (
 	"github.com/aviddiviner/inc/file"
 	"github.com/aviddiviner/inc/file/archive"
-	"github.com/aviddiviner/inc/file/filesystem"
+	"github.com/aviddiviner/inc/file/fs"
 	"github.com/aviddiviner/inc/store"
 	"log"
 	"os"
@@ -146,7 +146,7 @@ func RestoreToPath(bucket *store.Store, root string, incl []string) error {
 	// Scan and tag for restore.
 	localFiles := file.NewScanner().IncludePath(root).ScanRelativeTo(root)
 	// TODO: localFiles := file.NewScannerFS(subFs).IncludePath("/").Scan()
-	subFs, err := filesystem.NewSubdirFS(root)
+	subFs, err := fs.NewSubdirFS(root)
 	if err != nil {
 		panic(err)
 	}

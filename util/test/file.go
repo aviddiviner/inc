@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-var fs file.FileSystem = file.DefaultFileSystem
+var fs = file.DefaultFileSystem
 
 // The absolute path (after following symlinks) of os.TempDir()
 var TempDir = func() string {

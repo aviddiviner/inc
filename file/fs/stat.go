@@ -1,6 +1,6 @@
 // +build linux darwin dragonfly freebsd openbsd netbsd solaris
 
-package file
+package fs
 
 import (
 	"os"

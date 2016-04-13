@@ -33,7 +33,7 @@ I've tried to keep the code clean and maintainable by practicing radial encapsul
 	├── backup            -- backup/restore logic
 	├── file              -- OS and file functions
 	│   ├── archive       -- tarballing
-	│   └── filesystem    -- alternate filesystems
+	│   └── fs            -- filesystem layers (OS, test)
 	├── store             -- remote store interface
 	│   ├── crypto        -- encryption
 	│   ├── storage       -- storage layers (S3, etc)

@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 )
 
-var fs file.FileSystem = file.DefaultFileSystem
+var fs = file.DefaultFileSystem
 
 func RestoreDir(root string, entry file.File) error {
 	if !entry.IsDir() {

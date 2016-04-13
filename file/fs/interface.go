@@ -1,4 +1,4 @@
-package file
+package fs
 
 import (
 	"io"
@@ -112,10 +112,8 @@ type FileHandle interface {
 
 // -----------------------------------------------------------------------------
 
-// The DefaultFileSystem represents the actual OS filesystem and will read files
-// and data from disk as normal. Other FileSystems are used when testing to allow
-// for easy injection of faults.
-var DefaultFileSystem = new(osFs)
+// OS is an interface to the actual OS filesystem.
+var OS FileSystem = new(osFs)
 
 type osFs struct{}
 

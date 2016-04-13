@@ -6,7 +6,7 @@
 
 // +build linux dragonfly openbsd solaris
 
-package file
+package fs
 
 import (
 	"syscall"

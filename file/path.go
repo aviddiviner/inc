@@ -1,11 +1,17 @@
 package file
 
 import (
+	"github.com/aviddiviner/inc/file/fs"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 )
+
+// The DefaultFileSystem represents the actual OS filesystem and will read files
+// and data from disk as normal. Other FileSystems are used when testing to allow
+// for easy injection of faults.
+var DefaultFileSystem = fs.OS
 
 // CleanPath resolves the shortest path name equivalent, also replacing any
 // occurrences of the ~/ prefix with the actual home directory path.
@@ -25,7 +31,7 @@ func MakeDir(path string) error {
 	return MakeDirFS(DefaultFileSystem, path)
 }
 
-func MakeDirFS(fs FileSystem, path string) error {
+func MakeDirFS(fs fs.FileSystem, path string) error {
 	dir, err := fs.Lstat(path)
 	if err == nil && dir.IsDir() {
 		return nil
@@ -40,7 +46,7 @@ func WriteFile(filename string, data []byte) error {
 	return WriteFileFS(DefaultFileSystem, filename, data)
 }
 
-func WriteFileFS(fs FileSystem, filename string, data []byte) error {
+func WriteFileFS(fs fs.FileSystem, filename string, data []byte) error {
 	return fs.WriteFile(filename, data, 0644)
 }
 
@@ -49,6 +55,6 @@ func ReadFile(filename string) ([]byte, error) {
 	return ReadFileFS(DefaultFileSystem, filename)
 }
 
-func ReadFileFS(fs FileSystem, filename string) ([]byte, error) {
+func ReadFileFS(fs fs.FileSystem, filename string) ([]byte, error) {
 	return fs.ReadFile(filename)
 }

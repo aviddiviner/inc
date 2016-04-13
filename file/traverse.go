@@ -1,6 +1,7 @@
 package file
 
 import (
+	"github.com/aviddiviner/inc/file/fs"
 	"github.com/aviddiviner/inc/util"
 	"io"
 	"log"
@@ -14,7 +15,7 @@ import (
 // more if we want. Limited by the OS; max allowed open file handles.
 const c_CONCURRENT_FILES = 10
 
-func foundFile(fs FileSystem, pwd string, fi os.FileInfo) File {
+func foundFile(fs fs.FileSystem, pwd string, fi os.FileInfo) File {
 	stat, _ := fs.SysStat(fi)
 	f := File{
 		Root:    pwd,
@@ -33,7 +34,7 @@ func ScanFile(path string) File {
 	return ScanFileFS(DefaultFileSystem, path)
 }
 
-func ScanFileFS(fs FileSystem, path string) File {
+func ScanFileFS(fs fs.FileSystem, path string) File {
 	abs, err := fs.AbsPath(path)
 	if err != nil {
 		log.Fatal("scan: error finding absolute path. ", err)
@@ -49,7 +50,7 @@ func ScanFileFS(fs FileSystem, path string) File {
 
 // PathScanner scans multiple file paths in parallel.
 type PathScanner struct {
-	fs   FileSystem
+	fs   fs.FileSystem
 	incl []string
 	excl map[string]bool
 	wait sync.WaitGroup
@@ -61,7 +62,7 @@ func NewScanner() *PathScanner {
 	return NewScannerFS(DefaultFileSystem)
 }
 
-func NewScannerFS(fs FileSystem) *PathScanner {
+func NewScannerFS(fs fs.FileSystem) *PathScanner {
 	return &PathScanner{fs: fs, excl: make(map[string]bool)}
 }
 

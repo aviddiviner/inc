@@ -1,7 +1,6 @@
-package filesystem
+package fs
 
 import (
-	"github.com/aviddiviner/inc/file"
 	"os"
 	"path/filepath"
 	"time"
@@ -9,7 +8,7 @@ import (
 
 // NewSubdirFS returns a virtual filesystem where the real root is located on
 // disk in some subdirectory. It transparently maps files to their real paths.
-func NewSubdirFS(root string) (fs file.FileSystem, err error) {
+func NewSubdirFS(root string) (fs FileSystem, err error) {
 	root, err = filepath.Abs(root)
 	if err != nil {
 		return
@@ -18,12 +17,12 @@ func NewSubdirFS(root string) (fs file.FileSystem, err error) {
 	if err != nil {
 		return
 	}
-	return &subdirFs{root, file.DefaultFileSystem}, nil
+	return &subdirFs{root, OS}, nil
 }
 
 type subdirFs struct {
 	root string
-	osFs file.FileSystem
+	osFs FileSystem
 }
 
 func (fs *subdirFs) realPath(path string) string {
@@ -54,10 +53,10 @@ func (fs *subdirFs) MkdirAll(path string, perm os.FileMode) error {
 func (fs *subdirFs) RemoveAll(path string) error {
 	return fs.osFs.RemoveAll(fs.realPath(path))
 }
-func (fs *subdirFs) OpenRead(name string) (file.FileHandle, error) {
+func (fs *subdirFs) OpenRead(name string) (FileHandle, error) {
 	return fs.osFs.OpenRead(fs.realPath(name))
 }
-func (fs *subdirFs) OpenWrite(name string, perm os.FileMode) (file.FileHandle, error) {
+func (fs *subdirFs) OpenWrite(name string, perm os.FileMode) (FileHandle, error) {
 	return fs.osFs.OpenWrite(fs.realPath(name), perm)
 }
 func (fs *subdirFs) Readlink(name string) (string, error) {
@@ -75,7 +74,7 @@ func (fs *subdirFs) Chtimes(name string, atime, mtime time.Time) error {
 func (fs *subdirFs) IsNotExist(err error) bool {
 	return fs.osFs.IsNotExist(err)
 }
-func (fs *subdirFs) SysStat(fi os.FileInfo) (*file.FileStat_t, error) {
+func (fs *subdirFs) SysStat(fi os.FileInfo) (*FileStat_t, error) {
 	return fs.osFs.SysStat(fi)
 }
 func (fs *subdirFs) ReadFile(filename string) ([]byte, error) {

@@ -2,13 +2,14 @@ package file
 
 import (
 	"crypto/sha1"
+	"github.com/aviddiviner/inc/file/fs"
 	"github.com/aviddiviner/inc/util"
 	"io"
 	"log"
 	"time"
 )
 
-func checksumFile(fs FileSystem, path string) (out [sha1.Size]byte, length int) {
+func checksumFile(fs fs.FileSystem, path string) (out [sha1.Size]byte, length int) {
 	f, err := fs.OpenRead(path)
 	if err != nil {
 		log.Fatal("check: file read error. ", err, path)
@@ -24,7 +25,7 @@ func checksumFile(fs FileSystem, path string) (out [sha1.Size]byte, length int) 
 	return
 }
 
-func checksumSymlink(fs FileSystem, path string) ([sha1.Size]byte, int) {
+func checksumSymlink(fs fs.FileSystem, path string) ([sha1.Size]byte, int) {
 	link, err := fs.Readlink(path)
 	if err != nil {
 		log.Fatal("check: link read error. ", err, path)
@@ -39,7 +40,7 @@ func ChecksumFiles(groups ...[]File) {
 
 // ChecksumFilesFS scans the contents of a list of files, calculating their SHA1
 // checksums and populating the File details.
-func ChecksumFilesFS(fs FileSystem, groups ...[]File) {
+func ChecksumFilesFS(fs fs.FileSystem, groups ...[]File) {
 	start := time.Now()
 
 	totalFiles := 0

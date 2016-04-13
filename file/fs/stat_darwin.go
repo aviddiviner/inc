@@ -6,7 +6,7 @@
 
 // +build darwin freebsd netbsd
 
-package file
+package fs
 
 import (
 	"syscall"
