@@ -1,31 +1,9 @@
-require 'rake'
-
-def git_is_dirty
-  `git diff-index --quiet HEAD`
-  $?.exitstatus == 1
-end
-
-# Just having some fun :) Comparable int for `git --version` string.
-def git_version_to_int(str)
-  str.split('.').map(&:to_i).zip([3,2,1,0]).
-    map{ |p, e| p << (e*7) }.reduce(0, :+)
-end
+GIT_COMMIT   = `git rev-parse --short HEAD`.chomp
+GIT_TAG      = `git tag -l --points-at HEAD`.chomp  # requires git 1.7.10+
+GIT_IS_DIRTY = begin `git diff-index --quiet HEAD`; $?.exitstatus == 1 end
 
 BUILD_DATE   = Time.now.strftime('%Y-%m-%d %H:%M')
-
-git_version  = `git --version`.split.last
-git_commit   = `git rev-parse --short HEAD`.chomp
-
-if git_version_to_int(git_version) > git_version_to_int("1.7.10")
-  git_tag    = `git tag -l --points-at HEAD`.chomp  # --points-at requires git 1.7.10
-else
-  tags       = `git show-ref --tags`.split("\n")
-  git_tag    = tags.grep(/^#{git_commit}/).join.scan(/^.* refs\/tags\/(.*)/).join
-end
-
-BUILD_COMMIT = "#{git_tag.empty? ? '' : git_tag + ' '}" +
-               "#{git_commit}" +
-               "#{git_is_dirty ? '*' : ''}"
+BUILD_COMMIT = "#{GIT_TAG} #{GIT_COMMIT}#{GIT_IS_DIRTY ? '*' : ''}".lstrip
 
 VERSION_FILE = 'version.go'
 VERSION_DATA = <<EOS
