@@ -55,10 +55,5 @@ namespace :go do
   end
 end
 
-desc 'watch files for changes and run tests'
-task :guard do
-  sh 'bundle exec guard'
-end
-
 task :init => ['go:install:deps']
 task :default => ['go:version', 'go:test', 'go:build', 'go:install']
