@@ -97,8 +97,19 @@ func (s *Store) ID() string {
 
 // IsEmpty returns true if the store is clean (has no metadata) and is thus safe to wipe.
 func (s *Store) IsClean() bool {
-	if _, err := s.getStoreMetadata(); s.layer.IsNotExist(err) {
+	exists, err := s.layer.Exists()
+	if err != nil {
+		panic(err)
+	}
+	if !exists {
 		return true
+	}
+	_, err = s.getStoreMetadata()
+	if s.layer.IsNotExist(err) {
+		return true
+	}
+	if err != nil {
+		panic(err)
 	}
 	return false
 }
