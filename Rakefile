@@ -8,9 +8,10 @@ BUILD_COMMIT = "#{GIT_TAG} #{GIT_COMMIT}#{GIT_IS_DIRTY ? '*' : ''}".lstrip
 VERSION_FILE = 'version.go'
 VERSION_DATA = <<EOS
 package main
+
 const (
-  BUILD_DATE = "#{BUILD_DATE}"
-  BUILD_COMMIT = "#{BUILD_COMMIT}"
+\tBUILD_DATE   = "#{BUILD_DATE}"
+\tBUILD_COMMIT = "#{BUILD_COMMIT}"
 )
 EOS
 
@@ -42,6 +43,10 @@ namespace :go do
   desc 'compile packages'
   task :build => :version do
     sh 'go build'
+  end
+  desc 'simplify code with gofmt -s'
+  task :fmt do
+    sh 'git ls-files | grep ".go$" | xargs gofmt -l -s -w'
   end
   desc 'run all tests, excluding long-running tests named TestX...'
   task :test do

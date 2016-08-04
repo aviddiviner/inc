@@ -149,7 +149,7 @@ func (m *Manifest) Update(files []file.File) time.Time {
 		for _, f := range bundle {
 			var parts []ManifestEntryPart
 			if !f.IsDir() {
-				parts = []ManifestEntryPart{ManifestEntryPart{Key: key}}
+				parts = []ManifestEntryPart{{Key: key}}
 			}
 			newEntry := &ManifestEntry{f, m.LastSet, parts}
 			if m.Has(f) {

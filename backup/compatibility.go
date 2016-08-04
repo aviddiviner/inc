@@ -77,7 +77,7 @@ func unmarshalV2ManifestEntry(raw json.RawMessage, f *ManifestEntry) error {
 		}
 		setKey := strings.Split(obj, "/")
 		f.Set = setKey[0]
-		f.Parts = []ManifestEntryPart{ManifestEntryPart{Key: setKey[1]}}
+		f.Parts = []ManifestEntryPart{{Key: setKey[1]}}
 	}
 
 	if sha1, ok := keymap["sha1"]; ok {

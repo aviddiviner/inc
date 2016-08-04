@@ -11,14 +11,14 @@ import (
 )
 
 var samples = [][]byte{
-	[]byte{},                      // empty (non-nil)
+	{},                            // empty (non-nil)
 	[]byte(""),                    // empty (0 bytes)
 	[]byte("f"),                   // tiny
 	[]byte("foo"),                 // short
 	[]byte("justshortof16.."),     // just short of 16 bytes
 	[]byte("exampleplaintext"),    // exact (16 bytes == aes.BlockSize)
 	[]byte("exampleplaintext!!1"), // longer
-	[]byte{0x3b, 0x19, 0xec, 0x8a, 0x79, 0x37, 0xc4, 0xa4},
+	{0x3b, 0x19, 0xec, 0x8a, 0x79, 0x37, 0xc4, 0xa4},
 	[]byte(`
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta volutpat leo eget dapibus. Duis scelerisque tellus
 commodo magna ultrices sagittis. Duis eu imperdiet elit. Etiam convallis mauris lobortis pretium gravida. Phasellus ac
