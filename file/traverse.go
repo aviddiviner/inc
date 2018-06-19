@@ -83,7 +83,9 @@ func (s *PathScanner) ExcludePath(path string) *PathScanner {
 	abs, err := s.fs.AbsPath(path)
 	if err != nil {
 		log.Println("scan: error finding absolute path. ", err)
-		return s
+		// return s // TODO: Fix this. For now, just exclude what was given.
+		log.Printf("scan: excluding path: %q\n", path)
+		s.excl[path] = true
 	}
 	if !s.excl[abs] {
 		log.Printf("scan: excluding path: %q\n", abs)
