@@ -18,7 +18,7 @@ import (
 	"time"
 )
 
-var testConfigPath = "test_fixtures/config.v2.json"
+var testConfigPath = "testdata/config.v2.json"
 var testPassword = "mysupersecretpassword"
 
 var testRequestFault = errors.New("general test fault")
@@ -103,7 +103,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestLoadingOlderConfigVersions(t *testing.T) {
-	cfg, err := LoadConfigFile("test_fixtures/config.v1.json")
+	cfg, err := LoadConfigFile("testdata/config.v1.json")
 	assert.NoError(t, err)
 	assert.NotEmpty(t, cfg)
 	assert.Equal(t, "us-west-2", cfg.Store.S3Region)
@@ -112,7 +112,7 @@ func TestLoadingOlderConfigVersions(t *testing.T) {
 func TestLoadingAndSavingConfig(t *testing.T) {
 	cfg, err := LoadConfigFile(testConfigPath)
 	assert.NoError(t, err)
-	assert.Equal(t, "test_fixtures/", cfg.Paths.Include[0])
+	assert.Equal(t, "testdata/", cfg.Paths.Include[0])
 	err = cfg.WriteToFile(testConfigPath + "~")
 	assert.NoError(t, err)
 }
@@ -145,11 +145,11 @@ func TestBackupAndRestore(t *testing.T) {
 
 	var cfg LocalConfig
 	opts := options{
-		includePaths: []string{"test_fixtures/sample_files/"},
+		includePaths: []string{"testdata/sample_files/"},
 	}
 	vault, _, _, _ := setupMockStore(t, opts)
 
-	backupPath, err := file.DefaultFileSystem.AbsPath("test_fixtures/sample_files/")
+	backupPath, err := file.DefaultFileSystem.AbsPath("testdata/sample_files/")
 	assert.NoError(t, err)
 	restorePath := path.Join(tempTestDir, backupPath)
 	restorePaths := []string{backupPath}
@@ -169,11 +169,11 @@ func TestRestoreSelectedPaths(t *testing.T) {
 
 	var cfg LocalConfig
 	opts := options{
-		includePaths: []string{"test_fixtures/sample_files/"},
+		includePaths: []string{"testdata/sample_files/"},
 	}
 	vault, _, _, _ := setupMockStore(t, opts)
 
-	backupPath, err := file.DefaultFileSystem.AbsPath("test_fixtures/sample_files/")
+	backupPath, err := file.DefaultFileSystem.AbsPath("testdata/sample_files/")
 	assert.NoError(t, err)
 	restorePath := path.Join(tempTestDir, backupPath)
 	restorePaths := []string{path.Join(backupPath, "1-lorem")}
@@ -198,11 +198,11 @@ func TestAnotherBackupOverBrokenNetwork(t *testing.T) {
 
 	// Start with all files except one.
 	opts = options{
-		includePaths: []string{"test_fixtures/sample_files/"},
-		excludePaths: []string{"test_fixtures/sample_files/1-lorem", "test_fixtures/does_not_exist.txt"},
+		includePaths: []string{"testdata/sample_files/"},
+		excludePaths: []string{"testdata/sample_files/1-lorem", "testdata/does_not_exist.txt"},
 	}
 
-	backupPath, err := file.DefaultFileSystem.AbsPath("test_fixtures/sample_files/")
+	backupPath, err := file.DefaultFileSystem.AbsPath("testdata/sample_files/")
 	assert.NoError(t, err)
 	restorePaths := []string{path.Join(backupPath)}
 
@@ -213,7 +213,7 @@ func TestAnotherBackupOverBrokenNetwork(t *testing.T) {
 
 	// Now backup all files.
 	opts = options{
-		includePaths: []string{"test_fixtures/sample_files/"},
+		includePaths: []string{"testdata/sample_files/"},
 	}
 
 	assert.NoError(t, backup.ScanAndBackup(vault, scanFiles(cfg.Paths, opts)))
@@ -230,7 +230,7 @@ func TestAnotherBackupOverBrokenNetwork(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestLoadingV1ManifestFile(t *testing.T) {
-	data, err := ioutil.ReadFile("test_fixtures/manifest.v1.json")
+	data, err := ioutil.ReadFile("testdata/manifest.v1.json")
 	assert.NoError(t, err)
 
 	m, err := backup.ReadManifestData(data)
@@ -243,11 +243,11 @@ func TestLoadingV1ManifestFile(t *testing.T) {
 
 	json, err := m.JSON()
 	assert.NoError(t, err)
-	ioutil.WriteFile("test_fixtures/manifest.v1.json~", json, 0644)
+	ioutil.WriteFile("testdata/manifest.v1.json~", json, 0644)
 }
 
 func TestLoadingV2ManifestFile(t *testing.T) {
-	data, err := ioutil.ReadFile("test_fixtures/manifest.v2.json")
+	data, err := ioutil.ReadFile("testdata/manifest.v2.json")
 	assert.NoError(t, err)
 
 	m, err := backup.ReadManifestData(data)
@@ -261,11 +261,11 @@ func TestLoadingV2ManifestFile(t *testing.T) {
 
 	json, err := m.JSON()
 	assert.NoError(t, err)
-	ioutil.WriteFile("test_fixtures/manifest.v2.json~", json, 0644)
+	ioutil.WriteFile("testdata/manifest.v2.json~", json, 0644)
 }
 
 func TestLoadingV3ManifestFile(t *testing.T) {
-	data, err := ioutil.ReadFile("test_fixtures/manifest.v3.json")
+	data, err := ioutil.ReadFile("testdata/manifest.v3.json")
 	assert.NoError(t, err)
 
 	m, err := backup.ReadManifestData(data)
@@ -279,5 +279,5 @@ func TestLoadingV3ManifestFile(t *testing.T) {
 
 	json, err := m.JSON()
 	assert.NoError(t, err)
-	ioutil.WriteFile("test_fixtures/manifest.v3.json~", json, 0644)
+	ioutil.WriteFile("testdata/manifest.v3.json~", json, 0644)
 }

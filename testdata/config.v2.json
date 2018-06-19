@@ -10,11 +10,11 @@
   },
   "paths": {
     "include": [
-      "test_fixtures/"
+      "testdata/"
     ],
     "exclude": [
-      "test_fixtures/sample_files/foo/",
-      "test_fixtures/does_not_exist.txt"
+      "testdata/sample_files/foo/",
+      "testdata/does_not_exist.txt"
     ]
   }
 }

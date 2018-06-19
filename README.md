@@ -38,7 +38,6 @@ I've tried to keep the code clean and maintainable by practicing radial encapsul
 	│   ├── crypto        -- encryption
 	│   ├── storage       -- storage layers (S3, etc)
 	│   └── zip           -- compression
-	├── test_fixtures     -- (some static test files)
 	└── util              -- other useful functions
 
 #### Testing plans
