@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"sort"
 	"testing"
+	"time"
 )
 
 func pack(files ...file.File) (tarball []byte, err error) {
@@ -18,6 +19,19 @@ func pack(files ...file.File) (tarball []byte, err error) {
 
 func unpack(root string, tarball []byte) error {
 	return UnpackReader(root, bytes.NewReader(tarball), nil)
+}
+
+func assertFilesEqual(t *testing.T, expected, actual []file.File) {
+	assert.Equal(t, len(expected), len(actual), "same number of files")
+	for i := range expected {
+		e := expected[i]
+		a := actual[i]
+		assert.Equal(t, e.Root, a.Root, "files have the same root")
+		assert.Equal(t, e.Name, a.Name, "files have the same name")
+		assert.Equal(t, e.Size, a.Size, "files have the same size")
+		assert.Equal(t, e.Mode, a.Mode, "files have the same mode")
+		assert.WithinDuration(t, e.ModTime, a.ModTime, 1*time.Second, "files should have similar mod times")
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -43,7 +57,7 @@ func TestPackUnpack(t *testing.T) {
 	}
 	sort.Sort(file.ByPath(found))
 
-	assert.EqualValues(t, testFiles, found, "files are the same")
+	assertFilesEqual(t, testFiles, found)
 }
 
 func TestPackReader(t *testing.T) {
