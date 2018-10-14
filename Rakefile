@@ -15,13 +15,6 @@ const (
 )
 EOS
 
-DEPENDENCIES = %w(
-  golang.org/x/crypto/pbkdf2
-  github.com/mitchellh/goamz/aws
-  github.com/stretchr/testify/assert
-  github.com/docopt/docopt-go
-)
-
 namespace :go do
   desc 'write the version file with build date and last commit'
   task :version do
@@ -32,16 +25,9 @@ namespace :go do
   task :install => :build do
     sh 'go install'
   end
-  namespace :install do
-    desc 'install all dependencies'
-    task :deps do
-      DEPENDENCIES.each do |dep|
-        sh "go get #{dep}"
-      end
-    end
-  end
-  desc 'compile packages'
+  desc 'build packages'
   task :build => :version do
+    sh 'dep ensure'
     sh 'go build'
   end
   desc 'simplify code with gofmt -s'

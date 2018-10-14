@@ -1,4 +1,5 @@
 inc
 version.go
 scan.json
+vendor/
 *~
